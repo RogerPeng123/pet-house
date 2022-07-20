@@ -22,22 +22,27 @@ const App: React.FC = () => {
         <Stack.Screen
           name={'Guide'}
           component={GuideView}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, title: '启动页' }}
         />
         <Stack.Screen
           name={'Walkthrough1'}
           component={FirstWalkthrough}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, title: '引导' }}
         />
         <Stack.Screen
           name="Login"
           component={LoginView}
+          options={{
+            headerBackVisible: false,
+            title: '登录'
+          }}
         />
         <Stack.Screen
           name="Index"
           component={IndexView}
           options={{
-            headerBackVisible: false
+            headerBackVisible: false,
+            title: '主页'
           }}
         />
       </Stack.Navigator>

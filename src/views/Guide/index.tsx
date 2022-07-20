@@ -7,6 +7,7 @@ import {
     StyleSheet,
     View
 } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage';
 import { GuideProps } from "../../types/guide";
 
 const Vector = require('../../assets/Vector.png');
@@ -15,10 +16,26 @@ const dogCaughtImg = require('../../assets/dogCaught.png');
 const Guide: React.FC<GuideProps> = (props: GuideProps) => {
 
     useEffect(() => {
-        setTimeout(() => {
-            props.navigation.navigate('Walkthrough1')
-        }, 3000);
+        Init();
     }, [])
+
+    const Init = async () => {
+        const token: string | null = await AsyncStorage.getItem('@token')!;
+        const firstOpen: string | null = await AsyncStorage.getItem('@open')!;
+
+        setTimeout(() => {
+            if (firstOpen === null) {
+                props.navigation.navigate('Walkthrough1')
+            } else {
+                if (token === null) {
+                    props.navigation.navigate('Login')
+                } else {
+                    props.navigation.navigate('Index')
+                }
+            }
+
+        }, 3000);
+    }
 
     return (
         <SafeAreaView style={styles.container}>

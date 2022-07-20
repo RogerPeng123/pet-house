@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
     StyleSheet,
     View,
@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import ReactNativeViewPager from '@react-native-community/viewpager';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import WalkthroughItem from '../../components/Walkthrough';
 import { WalkthroughProps } from '../../types/walkthrough';
@@ -20,6 +21,11 @@ const WalkthroughThreeImg: ImageSourcePropType = require('../../assets/01-3.png'
 const nextThreeIcon: ImageSourcePropType = require('../../assets/next-3.png');
 
 const Walkthrough: React.FC<WalkthroughProps> = (props: WalkthroughProps) => {
+
+    useEffect(() => {
+        AsyncStorage.setItem('@open', '1');
+    }, []);
+
     const viewPagerRef = useRef<ReactNativeViewPager>(null);
 
     return (
@@ -55,7 +61,7 @@ const Walkthrough: React.FC<WalkthroughProps> = (props: WalkthroughProps) => {
                     nextIcon={nextThreeIcon}
                     nextClick={() => {
                         //点击进入主页
-                        props.navigation.navigate('Index')
+                        props.navigation.navigate('Login')
                     }} />
             </View>
         </ReactNativeViewPager>
