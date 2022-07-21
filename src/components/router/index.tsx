@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-import IndexView from "../../views/index/index";
+import IndexView from "../../views/Main/index";
 
 
 const AppRouter = () => {

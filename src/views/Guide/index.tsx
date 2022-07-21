@@ -3,15 +3,18 @@
 import React, { useEffect } from "react";
 import {
     Image,
+    ImageSourcePropType,
     SafeAreaView,
     StyleSheet,
     View
 } from "react-native";
 import AsyncStorage from '@react-native-community/async-storage';
+
+import * as RootNavigation from '../../global/RootNavigation';
 import { GuideProps } from "../../types/guide";
 
-const Vector = require('../../assets/Vector.png');
-const dogCaughtImg = require('../../assets/dogCaught.png');
+const Vector: ImageSourcePropType = require('../../assets/Vector.png');
+const dogCaughtImg: ImageSourcePropType = require('../../assets/dogCaught.png');
 
 const Guide: React.FC<GuideProps> = (props: GuideProps) => {
 
@@ -25,12 +28,12 @@ const Guide: React.FC<GuideProps> = (props: GuideProps) => {
 
         setTimeout(() => {
             if (firstOpen === null) {
-                props.navigation.navigate('Walkthrough1')
+                RootNavigation.navigate('Walkthrough')
             } else {
                 if (token === null) {
-                    props.navigation.navigate('Login')
+                    RootNavigation.navigate('Login')
                 } else {
-                    props.navigation.navigate('Index')
+                    RootNavigation.navigate('Index')
                 }
             }
 
@@ -155,10 +158,5 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         backgroundColor: '#8D9F5E',
-    },
-    borderContainer: {
-        borderColor: 'red',
-        borderWidth: 1,
-        borderStyle: 'solid'
     }
 });

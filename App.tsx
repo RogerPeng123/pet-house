@@ -8,41 +8,53 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import GuideView from './src/views/Guide';
-import LoginView from './src/views/Login';
-import IndexView from './src/views/index';
-import FirstWalkthrough from './src/views/Walkthrough';
+import { navigationRef } from './src/global/RootNavigation';
+
+import Guide from './src/views/Guide';
+import SignIn from './src/views/SignIn';
+import Main from './src/views/Main/index';
+import Walkthrough from './src/views/Walkthrough';
 
 const Stack = createNativeStackNavigator();
 
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
         <Stack.Screen
           name={'Guide'}
-          component={GuideView}
-          options={{ headerShown: false, title: '启动页' }}
-        />
-        <Stack.Screen
-          name={'Walkthrough1'}
-          component={FirstWalkthrough}
-          options={{ headerShown: false, title: '引导' }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginView}
+          component={Guide}
           options={{
-            headerBackVisible: false,
-            title: '登录'
+            title: '启动页',
+            headerShown: false,
           }}
         />
         <Stack.Screen
-          name="Index"
-          component={IndexView}
+          name={'Walkthrough'}
+          component={Walkthrough}
           options={{
+            title: '引导',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={SignIn}
+          options={{
+            title: '登录',
             headerBackVisible: false,
-            title: '主页'
+            headerShown: false,
+            gestureEnabled: false, //ios禁止该页面侧滑
+          }}
+        />
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={{
+            title: 'Main',
+            headerBackVisible: false,
+            headerShown: false,
+            gestureEnabled: false, //ios禁止该页面侧滑
           }}
         />
       </Stack.Navigator>
