@@ -36,7 +36,6 @@ const Guide: React.FC<GuideProps> = (props: GuideProps) => {
                     RootNavigation.navigate('Index')
                 }
             }
-
         }, 3000);
     }
 
@@ -98,35 +97,35 @@ const styles = StyleSheet.create({
         height: 35,
         transform: [{ rotate: "20.71deg" }],
         flex: 1,
-        paddingRight: 100
+        paddingLeft: 100
     },
     dogCaughFifthContainer: {
         marginTop: 15,
         height: 35,
         transform: [{ rotate: "17.83deg" }],
         flex: 1,
-        paddingLeft: 90
+        paddingRight: 90
     },
     dogCaughFourthContainer: {
         marginTop: 15,
         height: 35,
         transform: [{ rotate: "17.83deg" }],
         flex: 1,
-        paddingRight: 50
+        paddingLeft: 100
     },
     dogCaughThirdContainer: {
         marginTop: 15,
         height: 35,
         transform: [{ rotate: "28.13deg" }],
         flex: 1,
-        paddingLeft: 30
+        paddingRight: 90
     },
     dogCaughSecondContainer: {
         marginTop: 15,
         height: 35,
         transform: [{ rotate: "58.99deg" }],
         flex: 1,
-        paddingRight: 10
+        paddingLeft: 100
     },
     dogCaughFirstContainer: {
         width: 35,
