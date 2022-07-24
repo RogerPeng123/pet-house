@@ -9,6 +9,7 @@ import {
     TextInput,
     Button
 } from "react-native";
+import Const from "../../global/const";
 
 import { GlobalStyle } from "../../global/style";
 import { SignInProps } from "../../types/signin";
@@ -111,7 +112,7 @@ const SignIn: React.FC<SignInProps> = (props: SignInProps) => {
                                 ]}>
                                     <Button
                                         title={codeText}
-                                        color={'#FFFFFF'}
+                                        color={Const.defaultTextWhiteColor}
                                         onPress={() => handleGetCode()}
                                     />
                                 </View>
@@ -137,7 +138,7 @@ const SignIn: React.FC<SignInProps> = (props: SignInProps) => {
                             ]}>
                                 <Button
                                     title="Sign In"
-                                    color={'#FFFFFF'}
+                                    color={Const.defaultTextWhiteColor}
                                     onPress={() => handleSignIn()}
                                 />
                             </View>
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
     },
     forgetPasswordStyle: {
         textAlign: 'right',
-        color: '#8D9F5E',
+        color: Const.defaultColor,
         fontSize: 12,
         fontWeight: '500'
     },
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     topTitleTextStyle: {
         fontWeight: '700',
         fontSize: 31,
-        color: "#FFFFFF"
+        color: Const.defaultTextWhiteColor,
     },
     botTitleContainer: {
         width: 184,
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'rgba(0, 0, 0, 0.38)',
     },
     itemTitleStyle: {
-        color: "#8D9F5E",
+        color: Const.defaultColor,
         fontSize: 16,
         fontWeight: '500'
     },

@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import * as RootNavigation from '../../global/RootNavigation';
 import { GuideProps } from "../../types/guide";
+import Const from "../../global/const";
 
 const Vector: ImageSourcePropType = require('../../assets/Vector.png');
 const dogCaughtImg: ImageSourcePropType = require('../../assets/dogCaught.png');
@@ -156,6 +157,6 @@ const styles = StyleSheet.create({
         display: "flex",
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#8D9F5E',
+        backgroundColor: Const.defaultColor,
     }
 });

@@ -13,6 +13,7 @@ import Chats from "../Chats";
 import Settings from "../Settings";
 
 import { HomeProps } from "../../types/home";
+import Const from "../../global/const";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,34 +24,17 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
         >
             <Tab.Navigator
                 sceneContainerStyle={{
-                    backgroundColor: '#ECEBEB',
+                    backgroundColor: Const.sceneContainerColor,
                 }}
                 screenOptions={{
                     headerShown: false,
                     tabBarShowLabel: false,
                     tabBarStyle: {
-                        backgroundColor: '#8D9F5E',
+                        backgroundColor: Const.defaultColor,
                     },
                     tabBarBadgeStyle: {
-                        backgroundColor: '#ECEBEB',
+                        backgroundColor: Const.sceneContainerColor,
                     },
-                    // tabBarBackground: () => {
-                    //     return (
-                    //         <View style={[
-                    //             {
-                    //                 backgroundColor: '#ECEBEB',
-                    //                 height: "100%",
-                    //             },
-                    //         ]}>
-                    //             <View style={[
-                    //                 {
-                    //                     height: '100%',
-                    //                     backgroundColor: '#8D9F5E',
-                    //                 },
-                    //             ]}></View>
-                    //         </View>
-                    //     )
-                    // }
                 }}
             >
                 <Tab.Screen
@@ -85,8 +69,8 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                                     )
                                 }
                             },
-                            tabBarActiveTintColor: '#FFFFFF',
-                            tabBarInactiveTintColor: '#A1B275',
+                            tabBarActiveTintColor: Const.tabBarActiveTintColor,
+                            tabBarInactiveTintColor: Const.tabBarInactiveTintColor,
                         })
                     }
                 />
@@ -119,8 +103,8 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                                     )
                                 }
                             },
-                            tabBarActiveTintColor: '#FFFFFF',
-                            tabBarInactiveTintColor: '#A1B275',
+                            tabBarActiveTintColor: Const.tabBarActiveTintColor,
+                            tabBarInactiveTintColor: Const.tabBarInactiveTintColor,
                         })
                     }
                 />
@@ -153,8 +137,8 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                                     )
                                 }
                             },
-                            tabBarActiveTintColor: '#FFFFFF',
-                            tabBarInactiveTintColor: '#A1B275',
+                            tabBarActiveTintColor: Const.tabBarActiveTintColor,
+                            tabBarInactiveTintColor: Const.tabBarInactiveTintColor,
                         })
                     }
                 />
@@ -187,8 +171,8 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                                     )
                                 }
                             },
-                            tabBarActiveTintColor: '#FFFFFF',
-                            tabBarInactiveTintColor: '#A1B275',
+                            tabBarActiveTintColor: Const.tabBarActiveTintColor,
+                            tabBarInactiveTintColor: Const.tabBarInactiveTintColor,
                         })
                     }
                 />

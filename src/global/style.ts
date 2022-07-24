@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
+import Const from './const'
 
 export const GlobalStyle = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#8D9F5E',
+        backgroundColor: Const.defaultColor,
     },
     borderContainer: {
         borderColor: 'red',
