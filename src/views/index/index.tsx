@@ -22,19 +22,6 @@ const Index: React.FC = () => {
 
     const [search, setSearch] = useState<string>();
 
-    const generText = () => {
-        let itemAry = [];
-        for (var i = 0; i < 100; i++) {
-            itemAry.push(
-                <View key={i}>
-                    <Text key={`${i}-text`}>{`列表数据-${i}`}</Text>
-                </View>
-            );
-        }
-
-        return itemAry;
-    }
-
     return (
         <SafeAreaView style={GlobalStyle.container}>
             <View style={[
@@ -55,9 +42,7 @@ const Index: React.FC = () => {
                         </Text>
                     </View>
 
-                    <View style={[
-                        styles.topImgContainer
-                    ]}>
+                    <View style={[styles.topImgContainer]}>
                         <Image source={dogIndexImgSource} />
                     </View>
                 </View>

@@ -5,10 +5,14 @@ import {
     LayoutChangeEvent,
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableOpacity
 } from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Const from '../../global/const';
+
+import * as RootNavigation from '../../global/RootNavigation';
 
 import { PegListProps } from '../../types/peg';
 
@@ -24,8 +28,8 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
     const [translateXWidth, setTranslateXWidth] = useState<number>(0)
 
     useEffect(() => {
-        console.log('通过onLayout得到的宽度：' + containerWidth);
-        console.log('通过onLayout得到的高度：' + containerHeight);
+        // console.log('通过onLayout得到的宽度：' + containerWidth);
+        // console.log('通过onLayout得到的高度：' + containerHeight);
         setTranslateXWidth((containerWidth * 0.5 * 0.5));
 
     }, [containerWidth, containerHeight])
@@ -39,6 +43,10 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
             setContainerHeight(height)
             setContainerWidth(width)
         }
+    }
+
+    const goPetDetail = (id: number) => {
+        RootNavigation.navigate('PetDetail', { id: id });
     }
 
     return (
@@ -57,13 +65,18 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
                                     transform: [{ translateX: -translateXWidth }]
                                 } : {}
                             ]}>
-                            <Image source={IndexItemImg} style={styles.itemImageStyle} />
+                            <TouchableOpacity onPress={() => goPetDetail(index)}>
+                                <Image
+                                    source={IndexItemImg}
+                                    style={styles.itemImageStyle}
+                                />
+                            </TouchableOpacity>
                             <View style={styles.petNameAndSexContainer}>
                                 <Text style={styles.petNameStyle}>Hobbs</Text>
                                 <Ionicons
-                                    name={item == 2 ? 'ios-male-sharp' : 'ios-male-female'}
+                                    name={item == 2 ? Const.pegSexMaleIconName : Const.pegSexFemaleIconName}
                                     size={15}
-                                    color={item == 2 ? '#54B0DC' : '#F78B8B'}
+                                    color={item == 2 ? Const.pegSexMaleIconColor : Const.pegSexFemaleIconColor}
                                 />
                             </View>
 
@@ -77,9 +90,9 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
 
                                 <View style={styles.likeContainer}>
                                     <Ionicons
-                                        name={item == 2 ? 'ios-heart-outline' : 'ios-heart-sharp'}
+                                        name={item == 2 ? Const.likeInactiveIconName : Const.likeActionIconName}
                                         size={20}
-                                        color={item == 2 ? '#ECEBEB' : '#FF6969'}
+                                        color={item == 2 ? Const.likeInactiveIconColor : Const.likeActionIconName}
                                     />
                                 </View>
 

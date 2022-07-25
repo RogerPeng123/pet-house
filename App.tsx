@@ -5,8 +5,9 @@
  */
 import * as React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
+import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
+// import { HeaderBackButton } from '@react-navigation/stack';
 
 import { navigationRef } from './src/global/RootNavigation';
 
@@ -14,6 +15,10 @@ import Guide from './src/views/Guide';
 import SignIn from './src/views/SignIn';
 import Main from './src/views/Main/index';
 import Walkthrough from './src/views/Walkthrough';
+import PetDetail from './src/views/PetDetail';
+import AdoptionMessage from './src/views/AdoptionMessage';
+
+import Const from './src/global/const';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +62,37 @@ const App: React.FC = () => {
             gestureEnabled: false, //ios禁止该页面侧滑
           }}
         />
+
+        <Stack.Screen
+          name="PetDetail"
+          component={PetDetail}
+          options={{
+            title: '宠物详情',
+            headerBackTitle: '返回',
+            headerStyle: { backgroundColor: Const.defaultColor },
+            headerTitleStyle: { color: Const.defaultTextWhiteColor },
+            headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
+          }}
+        />
+
+        <Stack.Screen
+          name='AdoptionMessage'
+          component={AdoptionMessage}
+          options={({ route }) => ({
+            // title: route.params,
+            headerBackTitle: '返回',
+            headerStyle: { backgroundColor: Const.defaultColor },
+            headerTitleStyle: { color: Const.defaultTextWhiteColor },
+            headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
+          })}
+        // options={{
+        //   headerBackTitle: '返回',
+        //   headerStyle: { backgroundColor: Const.defaultColor },
+        //   headerTitleStyle: { color: Const.defaultTextWhiteColor },
+        //   headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
+        // }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   )

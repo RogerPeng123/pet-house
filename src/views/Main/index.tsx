@@ -46,9 +46,7 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                             headerTitleStyle: { textAlign: 'center' }, //Android 标题居中
                             tabBarIcon: (
                                 props: {
-                                    focused: boolean;
-                                    color: string;
-                                    size: number;
+                                    focused: boolean, color: string, size: number,
                                 }) => {
 
                                 if (props.focused) {
@@ -83,9 +81,7 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                             headerTitleStyle: { textAlign: 'center' }, //Android 标题居中
                             tabBarIcon: (
                                 props: {
-                                    focused: boolean;
-                                    color: string;
-                                    size: number;
+                                    focused: boolean, color: string, size: number,
                                 }) => {
                                 if (props.focused) {
                                     return (
@@ -117,9 +113,7 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                             headerTitleStyle: { textAlign: 'center' }, //Android 标题居中
                             tabBarIcon: (
                                 props: {
-                                    focused: boolean;
-                                    color: string;
-                                    size: number;
+                                    focused: boolean, color: string, size: number,
                                 }) => {
                                 if (props.focused) {
                                     return (

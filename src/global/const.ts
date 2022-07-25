@@ -45,6 +45,46 @@ class Const {
      */
     static categoriesTabBarTitleInactiveTintColor: string = '#9C9A9A'
 
+    /**
+     * 宠物性别 雄性 icon 
+     */
+    static pegSexMaleIconName: string = 'ios-male-sharp'
+
+    /**
+     * 宠物性别 雄性 color
+     */
+    static pegSexMaleIconColor: string = '#54B0DC'
+
+    /**
+     * 宠物性别 雌性 icon 
+     */
+    static pegSexFemaleIconName: string = 'ios-male-female'
+
+    /**
+     * 宠物性别 雌性 color 
+     */
+    static pegSexFemaleIconColor: string = '#F78B8B'
+
+    /**
+     * 喜欢图标 选中 icon
+     */
+    static likeActionIconName: string = 'ios-heart-sharp'
+
+    /**
+     * 喜欢图标 未选中 icon
+     */
+    static likeInactiveIconName: string = 'ios-heart-outline'
+
+    /**
+     * 喜欢图标 选中 color
+     */
+    static likeActionIconColor: string = '#FF6969'
+
+    /**
+     * 喜欢图标 未选中 color
+     */
+    static likeInactiveIconColor: string = '#ECEBEB'
+
 
 }
 
