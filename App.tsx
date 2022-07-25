@@ -79,18 +79,11 @@ const App: React.FC = () => {
           name='AdoptionMessage'
           component={AdoptionMessage}
           options={({ route }) => ({
-            // title: route.params,
             headerBackTitle: '返回',
             headerStyle: { backgroundColor: Const.defaultColor },
             headerTitleStyle: { color: Const.defaultTextWhiteColor },
             headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
           })}
-        // options={{
-        //   headerBackTitle: '返回',
-        //   headerStyle: { backgroundColor: Const.defaultColor },
-        //   headerTitleStyle: { color: Const.defaultTextWhiteColor },
-        //   headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
-        // }}
         />
 
       </Stack.Navigator>

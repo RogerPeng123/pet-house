@@ -70,10 +70,7 @@ const Chats: React.FC = () => {
         <Text style={styles.titleStyle}>Chats</Text>
       </SafeAreaView>
 
-      <View style={[
-        styles.container,
-        styles.messageListContainer
-      ]}>
+      <View style={[styles.container, styles.messageListContainer]}>
         {
           generatrMessageList()
         }
@@ -127,7 +124,7 @@ const styles = StyleSheet.create({
   timeContainer: {
     display: 'flex',
     flexDirection: 'column',
-    marginRight: 10,
+    marginRight: 20,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -157,6 +154,9 @@ const styles = StyleSheet.create({
   messageListContainer: {
     display: 'flex',
     flexDirection: 'column',
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    paddingTop: 20,
   },
   titleStyle: {
     fontSize: 24,

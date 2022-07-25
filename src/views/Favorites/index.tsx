@@ -28,10 +28,11 @@ const Favorites: React.FC = () => {
         for (let i = 0; i < 5; i++) {
             db.push(
                 <TouchableHighlight
+                    key={i}
                     underlayColor={Const.sceneContainerColor}
                     onPress={() => goPegDetail()}
                 >
-                    <View style={[styles.favoritesItemContainer]} key={i}>
+                    <View style={[styles.favoritesItemContainer]}>
                         <View style={styles.pegAvatrContainer}>
                             <Image
                                 source={pegAvatarSource}
@@ -142,6 +143,9 @@ const styles = StyleSheet.create({
     favoritesListContainer: {
         display: 'flex',
         flexDirection: 'column',
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        paddingTop: 20,
     },
     titleStyle: {
         fontSize: 24,
