@@ -74,9 +74,9 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
                             <View style={styles.petNameAndSexContainer}>
                                 <Text style={styles.petNameStyle}>Hobbs</Text>
                                 <Ionicons
-                                    name={item == 2 ? Const.pegSexMaleIconName : Const.pegSexFemaleIconName}
+                                    name={item === 2 ? Const.pegSexMaleIconName : Const.pegSexFemaleIconName}
                                     size={15}
-                                    color={item == 2 ? Const.pegSexMaleIconColor : Const.pegSexFemaleIconColor}
+                                    color={item === 2 ? Const.pegSexMaleIconColor : Const.pegSexFemaleIconColor}
                                 />
                             </View>
 
@@ -90,9 +90,10 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
 
                                 <View style={styles.likeContainer}>
                                     <Ionicons
-                                        name={item == 2 ? Const.likeInactiveIconName : Const.likeActionIconName}
+                                        name={item === 2 ? Const.likeInactiveIconName : Const.likeActionIconName}
                                         size={20}
-                                        color={item == 2 ? Const.likeInactiveIconColor : Const.likeActionIconName}
+                                        color={item === 2 ? Const.likeInactiveIconColor : Const.likeActionIconName}
+                                        // color={Const.likeActionIconColor}
                                     />
                                 </View>
 

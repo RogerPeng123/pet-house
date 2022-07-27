@@ -26,6 +26,11 @@ class Const {
     static sceneContainerColor: string = '#ECEBEB'
 
     /**
+     * 透明色
+     */
+    static clickTransparentColor: string = 'transparent';
+
+    /**
      * 首页宠物分类选择框,选中时颜色
      */
     static categoriesTabBarActiveTintColor: string = '#7A8A50'

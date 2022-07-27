@@ -18,12 +18,29 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import * as RootNavigation from '../../global/RootNavigation';
 import { GlobalStyle } from '../../global/style'
 import Const from '../../global/const'
+import { NavigationNavigate } from '../../types/navigation';
 
 
 const pegImgSource: ImageSourcePropType = require('../../assets/dogCaught.png');
 const AvatarImgSource: ImageSourcePropType = require('../../assets/user-cover.png');
 
-const Settings: React.FC = () => {
+const Settings: React.FC<NavigationNavigate> = (props: NavigationNavigate) => {
+
+    const onClickEditProfile = () => {
+        RootNavigation.navigate('EditProfile');
+    }
+
+    const onClickAddPet = () => {
+        Alert.alert('等待后续开发.....');
+    }
+
+    const onClickMyPets = () => {
+        Alert.alert('等待后续开发.....');
+    }
+
+    const onClickFavorites = () => {
+        props.navigation.navigate('Favorites')
+    }
 
     const handGoLogin = () => {
         Alert.alert(
@@ -45,7 +62,6 @@ const Settings: React.FC = () => {
                 }
             ]
         )
-
     }
 
     return (
@@ -62,8 +78,8 @@ const Settings: React.FC = () => {
             <View style={[styles.container, styles.settingContainer]}>
 
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
-                    onPress={() => { console.log('Edit Profile') }}
+                    underlayColor={Const.clickTransparentColor}
+                    onPress={() => onClickEditProfile()}
                 >
                     <View style={[styles.settingItemContainer]}>
                         <FontAwesome name={'edit'} size={22} color={Const.defaultColor} />
@@ -72,8 +88,8 @@ const Settings: React.FC = () => {
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
-                    onPress={() => { console.log('Add Pet') }}
+                    underlayColor={Const.clickTransparentColor}
+                    onPress={() => onClickAddPet()}
                 >
                     <View style={[styles.settingItemContainer]}>
                         <MaterialIcons name={'add'} size={22} color={Const.defaultColor} />
@@ -82,8 +98,8 @@ const Settings: React.FC = () => {
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
-                    onPress={() => { console.log('My Pets') }}
+                    underlayColor={Const.clickTransparentColor}
+                    onPress={() => onClickMyPets()}
                 >
                     <View style={[styles.settingItemContainer]}>
                         <Image source={pegImgSource} style={styles.itemIconImageStyle} />
@@ -92,8 +108,8 @@ const Settings: React.FC = () => {
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
-                    onPress={() => { console.log('Favorites') }}
+                    underlayColor={Const.clickTransparentColor}
+                    onPress={() => onClickFavorites()}
                 >
                     <View style={[styles.settingItemContainer]}>
                         <Ionicons name={'heart-sharp'} size={22} color={Const.defaultColor} />
@@ -102,7 +118,7 @@ const Settings: React.FC = () => {
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
+                    underlayColor={Const.clickTransparentColor}
                     onPress={() => handGoLogin()}
                 >
                     <View style={[styles.settingItemContainer]}>
@@ -127,7 +143,7 @@ const styles = StyleSheet.create({
         tintColor: Const.defaultColor
     },
     itemMenu: {
-        paddingLeft: 15,
+        paddingLeft: 25,
         fontSize: 16,
         color: '#000000',
         fontWeight: '500',

@@ -6,7 +6,8 @@ import {
     StyleSheet,
     Text,
     View,
-    TouchableHighlight
+    TouchableHighlight,
+    ScrollView
 } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -25,14 +26,20 @@ const Favorites: React.FC = () => {
 
     const generateFavorites = () => {
         let db: React.ReactNode[] = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
             db.push(
                 <TouchableHighlight
                     key={i}
-                    underlayColor={Const.sceneContainerColor}
+                    underlayColor={Const.clickTransparentColor}
                     onPress={() => goPegDetail()}
                 >
-                    <View style={[styles.favoritesItemContainer]}>
+                    <View style={[
+                        styles.favoritesItemContainer,
+                        i === 0 ? {
+                            marginTop: 20
+                        } : {}
+                    ]}
+                    >
                         <View style={styles.pegAvatrContainer}>
                             <Image
                                 source={pegAvatarSource}
@@ -76,13 +83,13 @@ const Favorites: React.FC = () => {
                 <Text style={styles.titleStyle}>Favorites</Text>
             </SafeAreaView>
 
-            <View style={[styles.container, styles.favoritesListContainer]}>
+            <ScrollView style={[styles.container, styles.favoritesListContainer]}>
 
                 {
                     generateFavorites()
                 }
 
-            </View>
+            </ScrollView>
 
         </View>
     )
@@ -133,7 +140,8 @@ const styles = StyleSheet.create({
     },
     favoritesItemContainer: {
         height: 100,
-        marginTop: 10,
+        marginTop: 5,
+        marginBottom: 5,
         display: 'flex',
         flexDirection: 'row',
         marginHorizontal: 20,
@@ -145,7 +153,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
-        paddingTop: 20,
+        // paddingVertical: 20,
     },
     titleStyle: {
         fontSize: 24,

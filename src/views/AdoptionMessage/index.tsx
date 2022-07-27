@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Message from '../../components/Message';
 import Const from '../../global/const';
+import { GlobalStyle } from '../../global/style';
 import { AdoptionMessageProps } from '../../types/adoption';
 
 const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageProps) => {
@@ -13,9 +14,9 @@ const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageP
 
     useEffect(() => {
         props.navigation.setOptions({
-            title: 'Ryder Pump(离线)',
+            title: 'Ryder Pump(online)',
             headerTitleStyle: {
-                color: '#B4B4B4'
+                // color: '#B4B4B4'
             },
         })
     }, []);
@@ -36,7 +37,6 @@ const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageP
                 }
             ]} />
             <View style={[styles.inputContainer]}>
-
                 <View style={styles.inputIconContainer}>
                     <Ionicons name={'attach'} size={20} color={'rgba(0, 0, 0, 0.58)'} />
                 </View>
@@ -46,6 +46,7 @@ const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageP
                         style={{
                             height: 50
                         }}
+                        autoCapitalize='none'
                         placeholder={'Type a message'}
                         onChangeText={(text: string) => setMessage(text)} />
                 </View>

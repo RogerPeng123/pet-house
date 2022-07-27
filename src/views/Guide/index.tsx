@@ -34,7 +34,7 @@ const Guide: React.FC<GuideProps> = (props: GuideProps) => {
                 if (token === null) {
                     RootNavigation.navigate('Login')
                 } else {
-                    RootNavigation.navigate('Index')
+                    RootNavigation.navigate('Main')
                 }
             }
         }, 3000);

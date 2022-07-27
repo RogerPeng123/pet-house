@@ -36,7 +36,7 @@ const Categories: React.FC = () => {
                     ]}
                 >
                     <TouchableHighlight
-                        underlayColor={Const.sceneContainerColor}
+                        underlayColor={Const.clickTransparentColor}
                         onPress={() => handleOnClick(i)}
                     >
                         <View

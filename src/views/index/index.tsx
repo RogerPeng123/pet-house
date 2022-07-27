@@ -23,71 +23,71 @@ const Index: React.FC = () => {
     const [search, setSearch] = useState<string>();
 
     return (
-        <SafeAreaView style={GlobalStyle.container}>
-            <View style={[
-                styles.topContainer
-            ]}>
+        <ScrollView>
+            <SafeAreaView style={GlobalStyle.container}>
                 <View style={[
-                    styles.topLogoContainer
+                    styles.topContainer
                 ]}>
-                    <View style={styles.topTitleContainer}>
-                        <Text style={[
-                            styles.topTitleColor,
-                            styles.topTitleStyle
-                        ]}>
-                            Adopt a
-                        </Text>
-                        <Text style={[styles.topTitleColor, styles.topLittleTieleStyle]}>
-                            Friend
-                        </Text>
+                    <View style={[
+                        styles.topLogoContainer
+                    ]}>
+                        <View style={styles.topTitleContainer}>
+                            <Text style={[
+                                styles.topTitleColor,
+                                styles.topTitleStyle
+                            ]}>
+                                Adopt a
+                            </Text>
+                            <Text style={[styles.topTitleColor, styles.topLittleTieleStyle]}>
+                                Friend
+                            </Text>
+                        </View>
+
+                        <View style={[styles.topImgContainer]}>
+                            <Image source={dogIndexImgSource} />
+                        </View>
                     </View>
 
-                    <View style={[styles.topImgContainer]}>
-                        <Image source={dogIndexImgSource} />
+                    <View style={[
+                        styles.searchContainer
+                    ]}>
+                        <Ionicons
+                            style={styles.searchIconStyle}
+                            name={'search-outline'}
+                            size={20}
+                            color={'#B7B7B7'}
+                        />
+                        <TextInput
+                            style={[styles.searchInputStyle]}
+                            onChangeText={(text: string) => {
+                                setSearch(text);
+                            }}
+                            returnKeyType={'search'}
+                            maxLength={30}
+                            clearButtonMode={'never'}
+                            value={search}
+                            autoCapitalize='none'
+                            placeholder={'Search your favourite pet'}
+                        />
                     </View>
                 </View>
 
-                <View style={[
-                    styles.searchContainer
-                ]}>
-                    <Ionicons
-                        style={styles.searchIconStyle}
-                        name={'search-outline'}
-                        size={20}
-                        color={'#B7B7B7'}
-                    />
-                    <TextInput
-                        style={[styles.searchInputStyle]}
-                        onChangeText={(text: string) => {
-                            setSearch(text);
-                        }}
-                        returnKeyType={'search'}
-                        maxLength={30}
-                        clearButtonMode={'never'}
-                        value={search}
-                        placeholder={'Search your favourite pet'}
-                    />
+                <View style={styles.contentContainer}>
+                    <View style={styles.categoriesContainer}>
+                        <Categories />
+                    </View>
+                    <View style={styles.categoriesTitleContainer}>
+                        <Text style={styles.categoriesTitleStyle}>
+                            Waiting for you
+                        </Text>
+                    </View>
+                    <View style={[styles.contentScrollViewContainer]}>
+                        <PegList />
+                    </View>
                 </View>
 
-            </View>
-
-            <View style={styles.contentContainer}>
-                <View style={styles.categoriesContainer}>
-                    <Categories />
-                </View>
-                <View style={styles.categoriesTitleContainer}>
-                    <Text style={styles.categoriesTitleStyle}>
-                        Waiting for you
-                    </Text>
-                </View>
-                <ScrollView style={[
-                    styles.contentScrollViewContainer
-                ]}>
-                    <PegList />
-                </ScrollView>
-            </View>
-
-        </SafeAreaView>
+            </SafeAreaView>
+        </ScrollView>
     )
 }
 

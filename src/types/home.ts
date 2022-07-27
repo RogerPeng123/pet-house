@@ -1,4 +1,3 @@
-
 interface HomeProps { }
 
 export type {

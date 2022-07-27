@@ -124,7 +124,7 @@ const PetDetail: React.FC<PegDetailProps> = (props: PegDetailProps) => {
 
             <View style={[styles.AdoptionContainer]}>
                 <TouchableHighlight
-                    underlayColor={Const.sceneContainerColor}
+                    underlayColor={Const.clickTransparentColor}
                     onPress={() => handleLikeAction}
                 >
                     <View style={[styles.likeActionButtonContainer]}>

@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
 
 import Const from '../../global/const'
@@ -23,12 +24,15 @@ const Chats: React.FC = () => {
 
   const generatrMessageList = () => {
     let db: React.ReactNode[] = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 15; i++) {
       db.push(
         <TouchableHighlight
           key={i}
           onPress={() => goAdoptionMessage(i)}
-          underlayColor={Const.sceneContainerColor}
+          underlayColor={Const.clickTransparentColor}
+          style={[
+            i === 0 ? { marginTop: 20 } : { marginBottom: 10 }
+          ]}
         >
           <View style={[styles.messageContainer]} >
             <View style={[styles.messageAvatarContainer]}>
@@ -70,12 +74,12 @@ const Chats: React.FC = () => {
         <Text style={styles.titleStyle}>Chats</Text>
       </SafeAreaView>
 
-      <View style={[styles.container, styles.messageListContainer]}>
+      <ScrollView style={[styles.container, styles.messageListContainer]}>
         {
           generatrMessageList()
         }
 
-      </View>
+      </ScrollView>
 
     </View>
   )
@@ -146,17 +150,17 @@ const styles = StyleSheet.create({
     borderStyle: 'solid'
   },
   messageContainer: {
-    marginTop: 10,
+    marginVertical: 5,
     paddingLeft: 23,
     display: 'flex',
     flexDirection: 'row'
   },
   messageListContainer: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    paddingTop: 20,
   },
   titleStyle: {
     fontSize: 24,

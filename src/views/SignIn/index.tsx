@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-community/async-storage";
 import React, { useEffect, useState } from "react";
 import {
     Text,
@@ -34,7 +35,8 @@ const SignIn: React.FC<SignInProps> = (props: SignInProps) => {
         console.log('获取验证码')
     }
 
-    const handleSignIn = () => {
+    const handleSignIn = async () => {
+        await AsyncStorage.setItem('@token', 'tokentoken');
         props.navigation.push('Main')
     }
 
@@ -72,6 +74,7 @@ const SignIn: React.FC<SignInProps> = (props: SignInProps) => {
                                     value={username}
                                     autoComplete={"off"}
                                     clearTextOnFocus={true}
+                                    autoCapitalize='none'
                                     onChangeText={(text: string) => {
                                         setUserName(text)
                                     }}
@@ -102,6 +105,7 @@ const SignIn: React.FC<SignInProps> = (props: SignInProps) => {
                                         autoComplete={"off"}
                                         clearTextOnFocus={true}
                                         // secureTextEntry={true}
+                                        autoCapitalize='none'
                                         onChangeText={(text: string) => {
                                             setPassword(text)
                                         }}

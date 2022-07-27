@@ -5,8 +5,8 @@
  */
 import * as React from 'react';
 
-import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
-import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import { HeaderBackButton } from '@react-navigation/stack';
 
 import { navigationRef } from './src/global/RootNavigation';
@@ -17,8 +17,10 @@ import Main from './src/views/Main/index';
 import Walkthrough from './src/views/Walkthrough';
 import PetDetail from './src/views/PetDetail';
 import AdoptionMessage from './src/views/AdoptionMessage';
+import EditProfile from './src/views/EditProfile';
 
 import Const from './src/global/const';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -85,6 +87,20 @@ const App: React.FC = () => {
             headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
           })}
         />
+
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
+          options={{
+            headerShown: false,
+            // title: 'EditProfile',
+            // headerBackTitle: '返回',
+            // headerStyle: { backgroundColor: Const.defaultColor },
+            // headerTitleStyle: { color: Const.defaultTextWhiteColor },
+            // headerTintColor: Const.defaultTextWhiteColor, // 返回按钮颜色
+          }}
+        />
+
 
       </Stack.Navigator>
     </NavigationContainer>
