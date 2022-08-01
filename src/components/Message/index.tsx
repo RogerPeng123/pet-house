@@ -30,7 +30,7 @@ const Message: React.FC<MessageProps> = (props: MessageProps) => {
     }
 
     return (
-        <ScrollView style={[styles.messageContainer]}>
+        <ScrollView style={[styles.messageContainer]} ref={props.scrollRef}>
             {
                 generateElements()
             }
@@ -81,5 +81,6 @@ const styles = StyleSheet.create({
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
+        marginVertical: 5
     }
 });

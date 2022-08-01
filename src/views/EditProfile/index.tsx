@@ -8,7 +8,8 @@ import {
     Button,
     Alert,
     ImageSourcePropType,
-    Image
+    Image,
+    KeyboardAvoidingView
 } from 'react-native'
 import Const from '../../global/const'
 import { GlobalStyle } from '../../global/style'
@@ -25,7 +26,7 @@ const EditProfile: React.FC = () => {
         Alert.alert('success')
     }
 
-    const onChangeProfilePicture = () => { 
+    const onChangeProfilePicture = () => {
         Alert.alert('调用选择图片')
     }
 
@@ -50,6 +51,7 @@ const EditProfile: React.FC = () => {
                 </View>
 
                 <View style={[styles.profileInfoContainer]}>
+
                     <View style={styles.formContainer}>
                         <View style={styles.formItemContainer}>
                             <View style={styles.itemTitleContainer}>
@@ -57,21 +59,23 @@ const EditProfile: React.FC = () => {
                                     Name
                                 </Text>
                             </View>
-                            <View style={[
-                                styles.itemTitleContainer,
-                                styles.itemTextInputStyle
-                            ]}>
-                                <TextInput
-                                    placeholder="Name"
-                                    value={username}
-                                    autoComplete={"off"}
-                                    clearTextOnFocus={true}
-                                    autoCapitalize='none'
-                                    onChangeText={(text: string) => {
-                                        setUserName(text)
-                                    }}
-                                />
-                            </View>
+                            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+                                <View style={[
+                                    styles.itemTitleContainer,
+                                    styles.itemTextInputStyle
+                                ]}>
+                                    <TextInput
+                                        placeholder="Name"
+                                        value={username}
+                                        autoComplete={"off"}
+                                        clearTextOnFocus={true}
+                                        autoCapitalize='none'
+                                        onChangeText={(text: string) => {
+                                            setUserName(text)
+                                        }}
+                                    />
+                                </View>
+                            </KeyboardAvoidingView>
                         </View>
 
                         <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
@@ -80,22 +84,26 @@ const EditProfile: React.FC = () => {
                                     Phone
                                 </Text>
                             </View>
-                            <View style={[
-                                styles.itemTitleContainer,
-                                styles.itemTextInputStyle
-                            ]}>
-                                <TextInput
-                                    placeholder="Phone"
-                                    value={phone}
-                                    autoComplete={"off"}
-                                    autoCapitalize='none'
-                                    clearTextOnFocus={true}
-                                    onChangeText={(text: string) => {
-                                        setPhone(text)
-                                    }}
-                                />
-                            </View>
+                            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+                                <View style={[
+                                    styles.itemTitleContainer,
+                                    styles.itemTextInputStyle
+                                ]}>
+                                    <TextInput
+                                        placeholder="Phone"
+                                        value={phone}
+                                        autoComplete={"off"}
+                                        autoCapitalize='none'
+                                        clearTextOnFocus={true}
+                                        onChangeText={(text: string) => {
+                                            setPhone(text)
+                                        }}
+                                    />
+                                </View>
+                            </KeyboardAvoidingView>
                         </View>
+
+
 
                         <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
                             <View style={styles.itemTitleContainer}>
@@ -103,6 +111,7 @@ const EditProfile: React.FC = () => {
                                     Location
                                 </Text>
                             </View>
+
                             <View style={[
                                 styles.itemTitleContainer,
                                 styles.itemTextInputStyle
@@ -120,6 +129,7 @@ const EditProfile: React.FC = () => {
                             </View>
                         </View>
                     </View>
+
 
                     <View style={[styles.actionContainer]}>
                         <Button
