@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, TouchableHighlight } from 'react-native';
+import {
+    SafeAreaView, ScrollView, StyleSheet,
+    Text, TextInput, View, KeyboardAvoidingView,
+    TouchableHighlight, Keyboard
+} from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -128,7 +132,10 @@ const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageP
             });
             setMessageList(newList);
 
+            //对话框拉倒最底下
             scrollRef.current?.scrollToEnd({ animated: true })
+            // 收起键盘
+            Keyboard.dismiss();
         }
     }
 

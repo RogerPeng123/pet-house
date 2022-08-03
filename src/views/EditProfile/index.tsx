@@ -38,8 +38,6 @@ const EditProfile: React.FC = () => {
         <View style={styles.container}>
 
             <SafeAreaView style={[styles.safeContainer]}>
-
-
                 <View style={[styles.profileAvatarContainer]}>
                     <View style={[styles.avatarContainer]}>
                         <Image
@@ -57,64 +55,56 @@ const EditProfile: React.FC = () => {
                     </View>
                 </View>
 
-
                 <View style={[styles.profileInfoContainer]}>
                     <View style={styles.formContainer}>
 
-                        <KeyboardAwareScrollView
-                            onKeyboardWillShow={(frames: Object) => {
-                                console.log('Keyboard event', frames)
-                            }}
-                            
-                        >
-
-                            <View style={styles.formItemContainer}>
-                                <View style={styles.itemTitleContainer}>
-                                    <Text style={styles.itemTitleStyle}>
-                                        Name
-                                    </Text>
-                                </View>
-                                <View style={[
-                                    styles.itemTitleContainer,
-                                    styles.itemTextInputStyle
-                                ]}>
-                                    <TextInput
-                                        placeholder="Name"
-                                        value={username}
-                                        autoComplete={"off"}
-                                        clearTextOnFocus={true}
-                                        autoCapitalize='none'
-                                        onChangeText={(text: string) => {
-                                            setUserName(text)
-                                        }}
-                                    />
-                                </View>
+                        <View style={styles.formItemContainer}>
+                            <View style={styles.itemTitleContainer}>
+                                <Text style={styles.itemTitleStyle}>
+                                    Name
+                                </Text>
                             </View>
-
-                            <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
-                                <View style={styles.itemTitleContainer}>
-                                    <Text style={styles.itemTitleStyle}>
-                                        Phone
-                                    </Text>
-                                </View>
-                                <View style={[
-                                    styles.itemTitleContainer,
-                                    styles.itemTextInputStyle
-                                ]}>
-                                    <TextInput
-                                        placeholder="Phone"
-                                        value={phone}
-                                        autoComplete={"off"}
-                                        autoCapitalize='none'
-                                        clearTextOnFocus={true}
-                                        onChangeText={(text: string) => {
-                                            setPhone(text)
-                                        }}
-                                    />
-                                </View>
+                            <View style={[
+                                styles.itemTitleContainer,
+                                styles.itemTextInputStyle
+                            ]}>
+                                <TextInput
+                                    placeholder="Name"
+                                    value={username}
+                                    autoComplete={"off"}
+                                    clearTextOnFocus={true}
+                                    autoCapitalize='none'
+                                    onChangeText={(text: string) => {
+                                        setUserName(text)
+                                    }}
+                                />
                             </View>
+                        </View>
 
+                        <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
+                            <View style={styles.itemTitleContainer}>
+                                <Text style={styles.itemTitleStyle}>
+                                    Phone
+                                </Text>
+                            </View>
+                            <View style={[
+                                styles.itemTitleContainer,
+                                styles.itemTextInputStyle
+                            ]}>
+                                <TextInput
+                                    placeholder="Phone"
+                                    value={phone}
+                                    autoComplete={"off"}
+                                    autoCapitalize='none'
+                                    clearTextOnFocus={true}
+                                    onChangeText={(text: string) => {
+                                        setPhone(text)
+                                    }}
+                                />
+                            </View>
+                        </View>
 
+                        <KeyboardAvoidingView behavior='padding' >
                             <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
                                 <View style={styles.itemTitleContainer}>
                                     <Text style={styles.itemTitleStyle}>
@@ -138,9 +128,8 @@ const EditProfile: React.FC = () => {
                                     />
                                 </View>
                             </View>
-                        </KeyboardAwareScrollView>
+                        </KeyboardAvoidingView>
                     </View>
-
 
                     <View style={[styles.actionContainer]}>
                         <Button
