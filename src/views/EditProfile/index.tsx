@@ -10,10 +10,7 @@ import {
     ImageSourcePropType,
     Image,
     KeyboardAvoidingView,
-    ScrollView
 } from 'react-native'
-
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import Const from '../../global/const'
 import { GlobalStyle } from '../../global/style'
