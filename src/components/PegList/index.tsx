@@ -92,7 +92,7 @@ const PegList: React.FC<PegListProps> = (props: PegListProps) => {
                                     <Ionicons
                                         name={item === 2 ? Const.likeInactiveIconName : Const.likeActionIconName}
                                         size={20}
-                                        color={item === 2 ? Const.likeInactiveIconColor : Const.likeActionIconName}
+                                        color={item === 2 ? Const.likeInactiveIconColor : Const.likeActionIconColor}
                                         // color={Const.likeActionIconColor}
                                     />
                                 </View>

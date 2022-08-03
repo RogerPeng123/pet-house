@@ -1,7 +1,7 @@
 import React from "react";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -19,9 +19,7 @@ const Tab = createBottomTabNavigator();
 
 const Main: React.FC<HomeProps> = (props: HomeProps) => {
     return (
-        <NavigationContainer
-            independent={true}
-        >
+        <NavigationContainer independent={true}>
             <Tab.Navigator
                 sceneContainerStyle={{
                     backgroundColor: Const.sceneContainerColor,
@@ -76,7 +74,10 @@ const Main: React.FC<HomeProps> = (props: HomeProps) => {
                     name="Favorites"
                     component={Favorites}
                     options={
-                        ({ route }) => ({
+                        ({ route }: {
+                            route: RouteProp<ParamListBase, "Favorites">
+                            navigation: any
+                        }) => ({
                             title: '喜欢',
                             headerTitleStyle: { textAlign: 'center' }, //Android 标题居中
                             tabBarIcon: (

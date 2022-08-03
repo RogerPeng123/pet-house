@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { LegacyRef, useRef, useState } from 'react'
 import {
     SafeAreaView,
     StyleSheet,
@@ -9,8 +9,12 @@ import {
     Alert,
     ImageSourcePropType,
     Image,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    ScrollView
 } from 'react-native'
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import Const from '../../global/const'
 import { GlobalStyle } from '../../global/style'
 
@@ -32,7 +36,10 @@ const EditProfile: React.FC = () => {
 
     return (
         <View style={styles.container}>
+
             <SafeAreaView style={[styles.safeContainer]}>
+
+
                 <View style={[styles.profileAvatarContainer]}>
                     <View style={[styles.avatarContainer]}>
                         <Image
@@ -50,16 +57,23 @@ const EditProfile: React.FC = () => {
                     </View>
                 </View>
 
-                <View style={[styles.profileInfoContainer]}>
 
+                <View style={[styles.profileInfoContainer]}>
                     <View style={styles.formContainer}>
-                        <View style={styles.formItemContainer}>
-                            <View style={styles.itemTitleContainer}>
-                                <Text style={styles.itemTitleStyle}>
-                                    Name
-                                </Text>
-                            </View>
-                            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+
+                        <KeyboardAwareScrollView
+                            onKeyboardWillShow={(frames: Object) => {
+                                console.log('Keyboard event', frames)
+                            }}
+                            
+                        >
+
+                            <View style={styles.formItemContainer}>
+                                <View style={styles.itemTitleContainer}>
+                                    <Text style={styles.itemTitleStyle}>
+                                        Name
+                                    </Text>
+                                </View>
                                 <View style={[
                                     styles.itemTitleContainer,
                                     styles.itemTextInputStyle
@@ -75,16 +89,14 @@ const EditProfile: React.FC = () => {
                                         }}
                                     />
                                 </View>
-                            </KeyboardAvoidingView>
-                        </View>
-
-                        <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
-                            <View style={styles.itemTitleContainer}>
-                                <Text style={styles.itemTitleStyle}>
-                                    Phone
-                                </Text>
                             </View>
-                            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+
+                            <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
+                                <View style={styles.itemTitleContainer}>
+                                    <Text style={styles.itemTitleStyle}>
+                                        Phone
+                                    </Text>
+                                </View>
                                 <View style={[
                                     styles.itemTitleContainer,
                                     styles.itemTextInputStyle
@@ -100,34 +112,33 @@ const EditProfile: React.FC = () => {
                                         }}
                                     />
                                 </View>
-                            </KeyboardAvoidingView>
-                        </View>
-
-
-
-                        <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
-                            <View style={styles.itemTitleContainer}>
-                                <Text style={styles.itemTitleStyle}>
-                                    Location
-                                </Text>
                             </View>
 
-                            <View style={[
-                                styles.itemTitleContainer,
-                                styles.itemTextInputStyle
-                            ]}>
-                                <TextInput
-                                    placeholder="Location"
-                                    value={location}
-                                    autoComplete={"off"}
-                                    clearTextOnFocus={true}
-                                    autoCapitalize='none'
-                                    onChangeText={(text: string) => {
-                                        setLocation(text)
-                                    }}
-                                />
+
+                            <View style={[styles.formItemContainer, styles.formItemContainerMarginTop]}>
+                                <View style={styles.itemTitleContainer}>
+                                    <Text style={styles.itemTitleStyle}>
+                                        Location
+                                    </Text>
+                                </View>
+
+                                <View style={[
+                                    styles.itemTitleContainer,
+                                    styles.itemTextInputStyle
+                                ]}>
+                                    <TextInput
+                                        placeholder="Location"
+                                        value={location}
+                                        autoComplete={"off"}
+                                        clearTextOnFocus={true}
+                                        autoCapitalize='none'
+                                        onChangeText={(text: string) => {
+                                            setLocation(text)
+                                        }}
+                                    />
+                                </View>
                             </View>
-                        </View>
+                        </KeyboardAwareScrollView>
                     </View>
 
 
@@ -138,10 +149,14 @@ const EditProfile: React.FC = () => {
                             onPress={() => onSaveChanges()}
                         />
                     </View>
+
                 </View>
-            </SafeAreaView>
+
+
+            </SafeAreaView >
+
             <SafeAreaView style={styles.safeBottomContainer} />
-        </View>
+        </View >
     )
 }
 

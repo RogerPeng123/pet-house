@@ -162,7 +162,6 @@ const AdoptionMessage: React.FC<AdoptionMessageProps> = (props: AdoptionMessageP
                             />
                         </View>
                     </TouchableHighlight>
-
                 </View>
             </KeyboardAvoidingView>
         </SafeAreaView>
